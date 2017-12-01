@@ -4,14 +4,15 @@ import './App.css';
 
 class App extends Component {
   render() {
-    const name = [
-      'phil',
-      'bill',
-      'timmy',
-      'phlimy',
-    ]
     return (
       <div>
+        <span>Picture:</span>
+        <input />
+
+        <span>Name:</span>
+        <input />
+
+        <button>Add Friend</button>
       </div>
     );
   }
