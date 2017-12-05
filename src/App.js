@@ -23,6 +23,18 @@ class App extends Component {
     this.setState({ name: value })
   }
 
+  addFriend() {
+    this.setState({
+      picture: '',
+      name: '',
+      friends: [...this.state.friends, {
+        picture: this.state.picture,
+        name: this.state.name
+      }]
+      // friends: friends
+    })
+  }
+
   render() {
     return (
       <div>
@@ -34,7 +46,17 @@ class App extends Component {
         <span>Name:</span>
         <input onChange={event => this.updateName(event.target.value)} value={this.state.name}/>
 
-        <button>Add Friend</button>
+        <button onClick={event => this.addFriend()}>Add Friend</button>
+
+        <div>
+          {this.state.friends.map(friend => (
+            <div>
+              <img src={friend.picture} width="100px"/>
+              Name: {friend.name}
+            </div>
+          ))}
+        </div>
+
         <div>
           State: {JSON.stringify(this.state)}
         </div>
